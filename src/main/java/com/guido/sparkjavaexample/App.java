@@ -1,6 +1,7 @@
-package com.guido;
+package com.guido.sparkjavaexample;
 
 import freemarker.template.Configuration;
+import freemarker.template.Version;
 
 import spark.ModelAndView;
 import spark.Request;
@@ -8,11 +9,12 @@ import spark.Response;
 import spark.template.freemarker.FreeMarkerEngine;
 
 import java.time.LocalDateTime;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import static spark.Spark.get;
 
@@ -22,10 +24,13 @@ import static spark.Spark.get;
  */
 public class App {
 
-    private static final Logger LOG = LoggerFactory.getLogger(App.class);
+    private static final Logger LOG = LogManager.getLogger(App.class);
 
-    public static final String GREETING_STRING = "greetingString";
-    public static final String NOW_TIME_STRING = "nowTimeString";
+    private static final String GREETING_STRING = "greetingString";
+
+    private static final String NOW_TIME_STRING = "nowTimeString";
+
+//    private static final String BASE_PACKAGE_PATH = "com/guido/sparkjavaexample";
 
     private static ModelAndView handleGet(Request req, Response res) {
 
@@ -40,8 +45,13 @@ public class App {
 
     public static void main(String[] args) {
 
-        Configuration configuration = new Configuration(Configuration.VERSION_2_3_26);
-        configuration.setClassForTemplateLoading(App.class, "/template");
+        // basePackagePath setting doesn't work, the only thing I could make work is when
+        // the .ftl resource file is in the root folder of the "jar".
+        // also if I don't set the classloader, it cannot find the .ftl file either.
+        // If I pass App.class instead of the classloader, it won't find the .ftl either.
+
+        Configuration configuration = new Configuration(new Version(2, 3, 23));
+        configuration.setClassLoaderForTemplateLoading(App.class.getClassLoader(), "");
         FreeMarkerEngine freeMarkerEngine = new FreeMarkerEngine(configuration);
 
         get("/hello/:name", App::handleGet, freeMarkerEngine);

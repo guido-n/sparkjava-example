@@ -1,8 +1,10 @@
-package com.guido;
+package com.guido.sparkjavaexample.test;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import com.guido.sparkjavaexample.App;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
@@ -14,12 +16,12 @@ import static org.hamcrest.CoreMatchers.containsString;
 
 public class AppTest {
 
-    @BeforeClass
+    @BeforeAll
     public static void startSparkjava() {
         App.main(new String[]{"empty"});
     }
 
-    @AfterClass
+    @AfterAll
     public static void stopSparkjava() {
         stop();
     }
