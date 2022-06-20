@@ -1,6 +1,6 @@
 module com.guido.sparkjava.example.test {
 
-    exports com.guido.sparkjavaexample.test;
+    exports com.guido.sparkjava.example.test;
 
     requires com.guido.sparkjava.example;
 

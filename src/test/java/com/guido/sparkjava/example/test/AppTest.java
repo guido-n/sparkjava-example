@@ -1,6 +1,6 @@
-package com.guido.sparkjavaexample.test;
+package com.guido.sparkjava.example.test;
 
-import com.guido.sparkjavaexample.App;
+import com.guido.sparkjava.example.App;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;

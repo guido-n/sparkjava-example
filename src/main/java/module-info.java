@@ -1,6 +1,6 @@
 module com.guido.sparkjava.example {
 
-    exports com.guido.sparkjavaexample;
+    exports com.guido.sparkjava.example;
 
     requires java.sql;
 

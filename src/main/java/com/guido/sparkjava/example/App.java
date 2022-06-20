@@ -1,4 +1,4 @@
-package com.guido.sparkjavaexample;
+package com.guido.sparkjava.example;
 
 import freemarker.template.Configuration;
 import freemarker.template.Version;
