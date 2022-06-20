@@ -1,8 +1,8 @@
-module sparkjava.example.test {
+module com.guido.sparkjava.example.test {
 
     exports com.guido.sparkjavaexample.test;
 
-    requires sparkjava.example;
+    requires com.guido.sparkjava.example;
 
     requires org.junit.jupiter;
     requires org.hamcrest;

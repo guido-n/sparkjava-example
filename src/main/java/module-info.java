@@ -1,4 +1,4 @@
-module sparkjava.example {
+module com.guido.sparkjava.example {
 
     exports com.guido.sparkjavaexample;
 

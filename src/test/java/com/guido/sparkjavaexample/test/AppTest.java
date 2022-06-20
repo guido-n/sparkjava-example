@@ -8,9 +8,9 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-import static io.restassured.RestAssured.when;
+import spark.Spark;
 
-import static spark.Spark.stop;
+import static io.restassured.RestAssured.when;
 
 import static org.hamcrest.CoreMatchers.containsString;
 
@@ -23,7 +23,7 @@ public class AppTest {
 
     @AfterAll
     public static void stopSparkjava() {
-        stop();
+        Spark.stop();
     }
 
     @Test
